@@ -40,21 +40,21 @@
   #touch{display:none;position:fixed;top:0;right:0;bottom:0;left:0;inset:0;z-index:9;touch-action:none}
   body.touch #touch.on{display:block}
   #look{position:absolute;right:0;top:0;width:60%;height:100%;touch-action:none}
-  #joyzone{position:absolute;left:0;bottom:0;width:45%;height:75%;touch-action:none}
-  #joy{position:absolute;left:26px;left:max(26px,env(safe-area-inset-left));bottom:26px;bottom:max(26px,env(safe-area-inset-bottom));width:140px;height:140px;border-radius:50%;border:2px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06);pointer-events:none}
+  #joyzone{position:absolute;left:0;bottom:0;width:48%;height:78%;touch-action:none}
+  #joy{position:absolute;left:24px;left:max(24px,env(safe-area-inset-left));bottom:24px;bottom:max(24px,env(safe-area-inset-bottom));width:138px;height:138px;border-radius:50%;border:2px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06);pointer-events:none}
   #joy::before,#joy::after{content:"";position:absolute;background:rgba(255,255,255,.14)}
   #joy::before{left:50%;top:12px;bottom:12px;width:1px}#joy::after{top:50%;left:12px;right:12px;height:1px}
   #knob{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(255,255,255,.28);border:2px solid rgba(255,255,255,.45)}
-  .tb{position:absolute;width:58px;height:58px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:rgba(20,20,20,.5);color:#ddd;font:700 12px sans-serif;display:flex;align-items:center;justify-content:center;text-align:center;touch-action:none;letter-spacing:.5px}
-  .tb.on{background:rgba(180,40,40,.55);border-color:#e66}
-  #bUse{right:24px;right:max(24px,env(safe-area-inset-right));bottom:24px;bottom:max(24px,env(safe-area-inset-bottom));width:70px;height:70px;font-size:16px}
-  #bFlash{right:110px;bottom:34px;bottom:max(34px,env(safe-area-inset-bottom))}
-  #bUV{right:196px;bottom:34px;bottom:max(34px,env(safe-area-inset-bottom));font-size:11px;border-color:rgba(160,80,255,.5);color:#d4b0ff}
-  #bUV.on{background:rgba(90,30,160,.6);border-color:#c88cff}
-  #bRun{right:24px;right:max(24px,env(safe-area-inset-right));bottom:112px;bottom:max(112px,calc(env(safe-area-inset-bottom) + 78px))}
-  #bCrouch{right:110px;bottom:104px;bottom:max(104px,calc(env(safe-area-inset-bottom) + 70px));font-size:10px}
-  #bThrow{right:24px;right:max(24px,env(safe-area-inset-right));bottom:190px;bottom:max(190px,calc(env(safe-area-inset-bottom) + 156px));font-size:10px}
-  #bPause{left:14px;left:max(14px,env(safe-area-inset-left));top:64px;top:max(64px,calc(env(safe-area-inset-top) + 48px));width:44px;height:44px;font-size:16px}
+  .tb{position:absolute;width:56px;height:56px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:rgba(20,20,20,.52);color:#ddd;font:700 11px sans-serif;display:flex;align-items:center;justify-content:center;text-align:center;touch-action:none;letter-spacing:.4px}
+  .tb.on{background:rgba(180,40,40,.58);border-color:#e66}
+  #bUse{right:22px;right:max(22px,env(safe-area-inset-right));bottom:22px;bottom:max(22px,env(safe-area-inset-bottom));width:72px;height:72px;font-size:15px}
+  #bFlash{right:108px;bottom:32px;bottom:max(32px,env(safe-area-inset-bottom))}
+  #bUV{right:192px;bottom:32px;bottom:max(32px,env(safe-area-inset-bottom));font-size:10px;border-color:rgba(160,80,255,.58);color:#d4b0ff;letter-spacing:.5px}
+  #bUV.on{background:rgba(90,30,160,.72);border-color:#d9b3ff;box-shadow:0 0 12px rgba(150,80,255,.28)}
+  #bRun{right:22px;right:max(22px,env(safe-area-inset-right));bottom:118px;bottom:max(118px,calc(env(safe-area-inset-bottom) + 84px))}
+  #bCrouch{right:108px;bottom:108px;bottom:max(108px,calc(env(safe-area-inset-bottom) + 76px));font-size:10px}
+  #bThrow{right:22px;right:max(22px,env(safe-area-inset-right));bottom:198px;bottom:max(198px,calc(env(safe-area-inset-bottom) + 164px));font-size:10px}
+  #bPause{left:12px;left:max(12px,env(safe-area-inset-left));top:64px;top:max(64px,calc(env(safe-area-inset-top) + 48px));width:44px;height:44px;font-size:16px}
   body.touch #bat{bottom:auto;top:calc(68px + env(safe-area-inset-top))}
   body.touch #dot{display:none}
   body.touch #msg{bottom:30px;bottom:max(30px,env(safe-area-inset-bottom))}
@@ -62,12 +62,12 @@
   #hideview{top:0;right:0;bottom:0;left:0}
   body.touch #loc{left:20px!important;left:max(20px,env(safe-area-inset-left))!important;top:42px!important;top:max(42px,calc(env(safe-area-inset-top) + 28px))!important}
   body.touch #minimap{
-    left:auto!important;right:12px!important;right:max(12px,env(safe-area-inset-right))!important;
-    top:12px!important;top:max(12px,env(safe-area-inset-top))!important;bottom:auto!important;
-    width:78px;height:87px;transform:none;opacity:.88;pointer-events:auto!important;
-    transition:width .2s,height .2s;z-index:8;border-radius:4px;
+    left:auto!important;right:10px!important;right:max(10px,env(safe-area-inset-right))!important;
+    top:10px!important;top:max(10px,env(safe-area-inset-top))!important;bottom:auto!important;
+    width:72px;height:82px;transform:none;opacity:.85;pointer-events:auto!important;
+    transition:width .22s,height .22s;z-index:8;border-radius:4px;
   }
-  body.touch #minimap.expanded{width:168px;height:188px;opacity:.96}
+  body.touch #minimap.expanded{width:184px;height:206px;opacity:.98}
   body.touch #breath{top:calc(env(safe-area-inset-top) + 12px)}
   #bottles{position:absolute;left:20px;top:116px;font:10px monospace;letter-spacing:1.5px;color:#c9a86a;opacity:.8;text-shadow:0 0 5px #000;pointer-events:none}
   #build{position:absolute;right:16px;top:16px;font:9px monospace;letter-spacing:1.5px;color:#8f9d86;opacity:.65;text-shadow:0 0 5px #000;pointer-events:none}
@@ -238,13 +238,14 @@ flashRig.add(flash);
 const flashSpill=new THREE.SpotLight(0xffd9a4,0,11,Math.PI/4.1,0.95,1.55);
 flashSpill.position.copy(flash.position);flashSpill.target=flashTarget;flashSpill.castShadow=false;flashRig.add(flashSpill);
 // UV complementar (não substitui a SpotLight branca — intensity 0 até ligar V)
-const uvLight=new THREE.SpotLight(0x9a4dff,0,12,Math.PI/8,0.5,1.6);
+const uvLight=new THREE.SpotLight(0x9a4dff,0,14,Math.PI/7.5,0.48,1.55);
 uvLight.position.copy(flash.position);uvLight.target=flashTarget;uvLight.castShadow=false;flashRig.add(uvLight);
 const flashWarm=new THREE.Color(0xfff2da),flashLow=new THREE.Color(0xffb168),_flashCol=new THREE.Color();
 let uvOn=false,uvDiscoverT=0,uvClues=[];
 let uvSeqIndex=0; // índice da próxima pista na sequência lógica UV
 let uvSeqTargets=[]; // lista ordenada de alvos da sequência UV
 let uvNextWhisperT=0; // cooldown para sussurros direcionais UV/exploração
+let uvUsageTime=0; // tempo de uso UV acumulado (para tensão sutil)
 
 // viewmodel: Maglite Mini pequena + mão (mesma posição/escala — só visual)
 const vm=new THREE.Group();
@@ -1354,15 +1355,15 @@ function roomOpenness(x,z){
 function route(node,pos,wet=.35,bus='sfx'){
   let last=node;
   if(pos){
-    const p=ctx.createPanner();p.panningModel='HRTF';p.distanceModel='inverse';p.refDistance=3;p.rolloffFactor=1.3;p.maxDistance=80;setPos(p,pos);
+    const p=ctx.createPanner();p.panningModel='HRTF';p.distanceModel='inverse';p.refDistance=3;p.rolloffFactor=1.35;p.maxDistance=90;setPos(p,pos);
     // oclusão por parede: abaixa o corte do lowpass conforme obstáculos acumulam
     const walls=wallCountBetween(pos.x,pos.z,P.x,P.z);
-    const occl=clamp(1-walls*.34,.16,1);
-    const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=20000*occl+.9;
+    const occl=clamp(1-walls*.36,.14,1);
+    const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=20000*occl+.8;
     node.connect(lp);lp.connect(p);last=p;
     // quanto mais parede, mais o som "vaza" pro reverb e menos direto (soa atrás do muro)
-    const roomWet=wet*(0.6+roomOpenness(pos.x,pos.z)*0.9);
-    if(roomWet>0.001){const w=ctx.createGain();w.gain.value=roomWet+walls*.06;last.connect(w);w.connect(revSend);}
+    const roomWet=wet*(0.6+roomOpenness(pos.x,pos.z)*0.95);
+    if(roomWet>0.001){const w=ctx.createGain();w.gain.value=roomWet+walls*.08;last.connect(w);w.connect(revSend);}
     const out=bus==='amb'?busAmb:bus==='ui'?busUi:busSfx;
     last.connect(out);
     return last;
@@ -1371,6 +1372,25 @@ function route(node,pos,wet=.35,bus='sfx'){
   last.connect(out);
   if(wet>0){const w=ctx.createGain();w.gain.value=wet;last.connect(w);w.connect(revSend);}
   return last;
+}
+function dirWhisper(pos,vol=.5){
+  if(!ctx||!pos)return;
+  const t=ctx.currentTime,d=rand(1.4,2.6),n=noiseSrc(true),bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=rand(1500,2300);bp.Q.value=2.6;
+  const mod=ctx.createGain();mod.gain.value=.055;const lf=ctx.createOscillator();lf.frequency.value=rand(3.2,6.5);const lg=ctx.createGain();lg.gain.value=.045;lf.connect(lg);lg.connect(mod.gain);
+  const g=ctx.createGain();envG(g,t,.6,vol,d*.8);
+  n.connect(bp);bp.connect(mod);mod.connect(g);
+  route(g,pos,.32,'sfx');
+  n.start(t);n.stop(t+d+.8);lf.start(t);lf.stop(t+d+.8);
+}
+function heartbeat(vol=.6){
+  if(!ctx)return;const t=ctx.currentTime;[0,.18].forEach((dt,i)=>{const o=ctx.createOscillator();o.type='sine';o.frequency.value=i?48:56;
+    const g=ctx.createGain();envG(g,t+dt,.01,vol*(i?.6:1),.14);o.connect(g);g.connect(busSfx);o.start(t+dt);o.stop(t+dt+.3);
+  });
+}
+function breathHeavy(vol=.5){
+  if(!ctx)return;const t=ctx.currentTime,n=noiseSrc(true),bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=520;bp.Q.value=1.2;
+  const g=ctx.createGain();g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(vol,t+.8);g.gain.exponentialRampToValueAtTime(.0001,t+2.2);
+  n.connect(bp);bp.connect(g);g.connect(busSfx);n.start(t);n.stop(t+2.4);
 }
 const noiseSrc=(loop=false)=>{const s=ctx.createBufferSource();s.buffer=noiseBuf;s.loop=loop;s.playbackRate.value=.8+Math.random()*.4;return s;};
 const envG=(g,t,a,peak,d)=>{g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(.0002,peak),t+a);g.gain.exponentialRampToValueAtTime(.0001,t+a+d);};
@@ -1913,7 +1933,7 @@ function directorNudge(){
   if(M.state!=='dormant'||hidden)return;
   if(D.mode==='calm'){D.modeT=0;D.modeDur=Math.min(D.modeDur,rand(2,5));}
 }
-function fakeScare(){const p=randPosAround(rand(4,10));const k=ri(4);if(k===0)thud(p,1);else if(k===1)pipe(p);else if(k===2){thud(randPosAround(5),.9);setTimeout(()=>{if(ctx)whisper(randPosAround(3));},700);}else scratch(p);shakeAmt=Math.max(shakeAmt,.12);pushFear(.2);}
+function fakeScare(){const p=randPosAround(rand(4,10));const k=ri(5);if(k===0)thud(p,1);else if(k===1)pipe(p);else if(k===2){thud(randPosAround(5),.9);setTimeout(()=>{if(ctx)whisper(randPosAround(3));},700);}else if(k===3){scratch(p);setTimeout(()=>{if(ctx)dirWhisper(randPosAround(rand(3,6)),.42);},500);}else {breathHeavy(.28);if(ctx)dirWhisper(randPosAround(rand(4,7)),.4);}shakeAmt=Math.max(shakeAmt,.14);pushFear(.22);}
 
 // aparição imóvel ao fundo (em pé ou agachada)
 function startManifest(){
@@ -2158,6 +2178,10 @@ function reactLight(){
   else if(r==='chase')startChase();
 }
 function updateMonster(dt){
+  // tensão sutil se usar UV por muito tempo em área perigosa
+  if(uvOn&&flashOn&&bat>0 && uvUsageTime>5 && playing&&!paused && M.state!=='dormant' && M.state!=='chase' && Math.random()<dt*.08){
+    if(ctx) dirWhisper(v3(M.pos.x,1.6,M.pos.z),.32);
+  }
   if(hidden){
     const dx=P.x-M.pos.x,dz=P.z-M.pos.z,dist=Math.hypot(dx,dz);
     M.dist=dist;M.prox=clamp(1-dist/12,0,1);
@@ -2732,8 +2756,9 @@ function update(dt){
   if(flLens&&flLens.material){flLens.material.emissive.copy(_flashCol);flLens.material.emissiveIntensity=flashOn?(0.2+fi*0.2):0.03;}
   // UV adicional — não mexe na luz branca nem no ambient/fog
   if(uvOn&&bat<=0)uvOn=false;
-  uvLight.intensity=(uvOn&&bat>0)?2.4*flashFlick:0;
-  if(mUVLed)mUVLed.emissiveIntensity=uvOn?(1.2+.5*Math.sin(gameT*7)):0;
+  uvLight.intensity=(uvOn&&bat>0)?2.6*flashFlick:0;
+  if(mUVLed)mUVLed.emissiveIntensity=uvOn?(1.4+.6*Math.sin(gameT*7)):0;
+  if(uvOn&&flashOn&&bat>0){ uvUsageTime+=dt; } else { uvUsageTime=Math.max(0,uvUsageTime-dt*0.4); }
   updateUvClues(dt);
   // feixe no ar + poeira (silenciosos, sem custo de luz dinâmica extra)
   const beamTarget=flashOn&&bat>0?(.05+.028*Math.min(1,bat/40))*flashFlick:0;
@@ -2779,7 +2804,7 @@ function update(dt){
     const brAmp=(hidden?(holdBreath?.0015:.03):(holding?.004:lerp(.012,.075,eff)))*settings.breath;
     updateBreath(hidden?(holdBreath?.16:.38):lerp(.28,1.15,eff),brAmp);
     if(prevRun&&!P.running&&exertion>.5&&gameT-lastGasp>6){lastGasp=gameT;inhale(.5*settings.breath);}
-    if(fear>.45){hbT-=dt;if(hbT<=0){heart((.1+fear*.65)*settings.breath);hbT=60/lerp(64,150,fear);}}
+    if(fear>.45||M.state==='chase'||M.inView){hbT-=dt;if(hbT<=0){heartbeat((.12+fear*.7)*settings.breath);hbT=60/lerp(68,155,Math.max(fear,(M.state==='chase'?1:0)));}}
   }
   // indicador visual de respiração agitada
   const breathEl=$('breath');
@@ -2995,25 +3020,52 @@ function toggleFlash(){
   flashOn=!flashOn;flashKick=1;flashClick(flashOn);
 }
 function toggleUV(){
-  if(bat<=0||blackoutT>0)return;
+  if(!playing||paused||ended)return;
+  if(bat<=0&&(!uvOn)){ msg('Bateria fraca.',900); return; }
   uvOn=!uvOn;flashKick=.4;flashClick(uvOn);
   const bu=$('bUV');if(bu)bu.classList.toggle('on',uvOn);
-  if(uvOn){msg('UV ligada — luz normal continua. Varra as paredes.',2600);uvDiscoverT=3;}
-  else msg('UV desligada.',1000);
+  if(uvOn){msg('UV ligada — luz normal continua. Varra as paredes.',2600);uvDiscoverT=3; if(ctx){ try{whisper(camera.position.clone().add(camera.getWorldDirection(new THREE.Vector3()).multiplyScalar(2)));}catch(e){} }}
+  else { msg('UV desligada.',900); }
 }
 function updateUvClues(dt){
   uvDiscoverT=Math.max(0,uvDiscoverT-dt);
+  const pc=cellOf(P);
   for(const c of uvClues){
     const p=c.mesh.position;
     const dist=Math.hypot(p.x-P.x,p.z-P.z);
     const show=uvOn&&bat>0;
-    const targetOp=show?(dist<7?.9:.3):0.03;
+    const targetOp=show?(dist<7?.9:.28):0.03;
     c.mat.opacity=lerp(c.mat.opacity,targetOp,Math.min(1,dt*5));
-    c.mat.color.setHex(show?0xffffff:0x151018);
+    c.mat.color.setHex(show?0xf0e6ff:0x151018);
     if(show&&dist<4&&!c.found){
-      c.found=true;uvDiscoverT=3.5;
-      msg('Marca UV: '+c.txt.replace(/\n/g,' — '),4000);
-      if(ctx)whisper(v3(p.x,1.5,p.z));
+      // enigma encadeado: só avança se for o próximo na sequência, senão mantém sutil
+      const isNext = (c.seq === uvSeqIndex);
+      c.found=true;
+      uvDiscoverT=3.8;
+      if(isNext){
+        uvSeqIndex = Math.min(uvSeqTargets.length, uvSeqIndex+1);
+        msg('Marca UV revelada: '+c.txt.replace(/\n/g,' — '),4500);
+        if(ctx) dirWhisper(v3(p.x,1.5,p.z),.55);
+        // tension sutil ao investigar
+        if(uvUsageTime>2.5 && M.state!=='chase' && Math.random()<.25) { fakeScare(); }
+      }else{
+        msg('Marca UV: '+c.txt.replace(/\n/g,' — '),3200);
+        if(ctx && Math.random()<.4) dirWhisper(v3(p.x,1.5,p.z),.4);
+      }
+    }
+  }
+  // sussurro direcional ocasional apontando para próxima pista não encontrada
+  if(uvOn&&bat>0&&uvSeqIndex<uvSeqTargets.length&&playing&&!paused&&gameT>uvNextWhisperT){
+    const next=uvSeqTargets[uvSeqIndex];
+    if(next){
+      const np=center(next.cell);
+      const nd=Math.hypot(np.x-P.x,np.z-P.z);
+      if(nd>6&&nd<16 && los(np.x,np.z,P.x,P.z)===false){
+        if(ctx&&Math.random()<.35){ dirWhisper(v3(np.x,1.6,np.z),.38); }
+        uvNextWhisperT=gameT+rand(12,18);
+      }else{
+        uvNextWhisperT=gameT+rand(8,14);
+      }
     }
   }
 }
@@ -3108,7 +3160,7 @@ function pauseTouch(){
   if(!isTouch)return;
   // desempenho: sem sombras da lanterna e resolução menor por padrão no celular
   settings.shadows=false;flash.castShadow=false;$('sShadow').checked=false;renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setSize(innerWidth,innerHeight);
-  $('mtext').innerHTML='Edifício dos Condenados. 3 fusíveis + porta verde. <b>LUZ</b> = lanterna · <b>UV</b> = mensagens (não apaga a luz). <b>Use fones.</b><br><br>Joystick inf.esq. · Ações inf.dir. · Mapa sup.dir. (toque expande) · Arraste direita p/ olhar<br>Paisagem recomendado.';
+  $('mtext').innerHTML='Edifício dos Condenados. 3 fusíveis + porta verde. <b>LUZ</b> = lanterna · <b>UV</b> = mensagens (não apaga a luz). <b>Use fones.</b><br><br>Joystick inf.esq. · Ações inf.dir. · Mapa sup.dir. (toque expande/fecha) · Arraste direita p/ olhar<br>Paisagem recomendado.';
   const jz=$('joyzone'),look=$('look'),knob=$('knob');
   const joyCenter=()=>{const r=$('joy').getBoundingClientRect();return{x:r.left+r.width/2,y:r.top+r.height/2};};
   const joyMove=e=>{
