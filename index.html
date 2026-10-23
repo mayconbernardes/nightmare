@@ -1063,7 +1063,7 @@ const parts={};
   parts.legL=limb(-.1,1.0,.8,.8,.055,mon);parts.legR=limb(.1,1.0,.8,.8,.055,mon);
   parts.legL.lo.rotation.x=1.15;parts.legR.lo.rotation.x=1.35;
   const head=makeHead();head.position.set(0,2.32,0);mon.add(head);parts.head=head;parts.jaw=head.userData.jaw;
-  const ml=new THREE.PointLight(0x7788aa,.7,7);ml.position.y=1.8;mon.add(ml);parts.light=ml;
+  const ml=new THREE.PointLight(0x93a6c8,1.15,9);ml.position.y=1.8;mon.add(ml);parts.light=ml;
   mon.traverse(o=>{if(o.isMesh)o.castShadow=true;});
   mon.visible=false;scene.add(mon);
 })();
@@ -1098,7 +1098,7 @@ function zMakeMats(fbx){
   const body=new THREE.MeshStandardMaterial({
     map:fbx?zFbxTex(T.map):T.map,roughnessMap:fbx?zFbxTex(T.rough):T.rough,
     normalMap:fbx?zFbxTex(T.norm):T.norm,normalScale:new THREE.Vector2(1.1,1.1),
-    roughness:.82,metalness:.05,emissive:0x1a0808,emissiveIntensity:.1
+    roughness:.82,metalness:.05,emissive:0x241010,emissiveIntensity:.18
   });
   const hair=new THREE.MeshStandardMaterial({
     map:T.hairMap,alphaMap:T.hairOp,normalMap:T.hairN,transparent:true,alphaTest:.3,side:THREE.DoubleSide,
@@ -1741,12 +1741,14 @@ function prepM(pose){
 }
 // IA mais "justa": após te ver, o monstro primeiro te caça de longe (hunt) por um tempo
 // e só então parte para cima. Assim você tem tempo de escapar em vez de ataque instantâneo.
-const AI={chaseSpeed:3.15,chaseSpeedFinal:3.5,windup:.62,meleeReach:1.5,graceT:22,introT:3.2,recover:.95,stumble:1.15};
+const AI={chaseSpeed:3.15,chaseSpeedFinal:3.5,windup:.85,meleeReach:1.5,graceT:30,introT:4,recover:1.05,stumble:1.15};
 function startChase(){
   setPose('stand');M.mode='';M.peekPt=null;M.speedBoost=0;M.freezeT=0;M.recoilT=0;M.attackT=0;M.attackCd=0;M.retreatT=0;M.last={x:P.x,z:P.z};mon.visible=true;
   // Grace period: nos primeiros segundos de jogo/ações ele NÃO lava direto — só ronda.
   const grace=gameT<AI.graceT&&!M.final;
   if(grace||M.approachT>0){M.state='hunt';M.huntT=0;M.goalT=0;M.approachT=Math.max(M.approachT||0,AI.introT);return;}
+  // Antes de virar perseguição, ele sempre te dá uma janela de aproximação para você reagir.
+  if(M.state!=='hunt'&&!M.final){M.state='hunt';M.huntT=0;M.goalT=0;M.approachT=AI.introT*.6;return;}
   M.state='chase';M.lost=0;
 }
 // disparado quando ele finalmente decide virar o ataque (com telegrafia)
@@ -1940,7 +1942,7 @@ function startManifest(){
   duckAmbient(2.6);
   setTimeout(()=>{
     if(!playing||M.state!=='dormant')return;
-    const s=findLosSpot(7,15,true);if(!s){fakeScare();return;}
+    const s=findLosSpot(6,12,true);if(!s){fakeScare();return;}
     prepM(Math.random()<.35?'crouch':'stand');M.pos.copy(s);M.state='manifest';aimAtPlayer();D.sinceScare=0;
   },1400);
 }
@@ -2297,12 +2299,12 @@ function updateMonster(dt){
       faceTo(P.x,P.z,dt);M.standT+=dt;
       if(M.mode==='behind'&&!M.inView&&dist>2.6&&!frozen){const d=dist||1,nx=M.pos.x+dx/d*1.1*dt,nz=M.pos.z+dz/d*1.1*dt;if(!isWall(nx,nz)){M.pos.x=nx;M.pos.z=nz;}}
       if(M.inView)M.seenT+=dt;
-      if(M.seenT>(M.mode==='behind'?.6:.9)){M.charge?startChase():vanish();}
-      else if(M.standT>(M.mode==='behind'?9:7))vanish();
+      if(M.seenT>(M.mode==='behind'?1.8:2.6)){M.charge?startChase():vanish();}
+      else if(M.standT>(M.mode==='behind'?10:9))vanish();
       break;}
     case'peek':
       M.standT+=dt;if(M.inView)M.seenT+=dt;
-      if(M.seenT>1.1||dist<3.3||M.standT>8)vanish();
+      if(M.seenT>2.2||dist<2.6||M.standT>10)vanish();
       break;
     case'ceiling':{
       faceTo(P.x,P.z,dt);M.standT+=dt;
@@ -2315,8 +2317,8 @@ function updateMonster(dt){
       const fwd=v3(0,0,-1).applyQuaternion(camera.quaternion),to=v3(M.pos.x-P.x,0,M.pos.z-P.z).normalize();
       if(M.inView&&fwd.dot(to)>.4){                        // observado → congela
         faceTo(P.x,P.z,dt);M.seenT+=dt;
-        if(dist<5.5&&M.seenT>1.2){if(M.charge)startChase();else vanish();}
-        else if(M.seenT>6)vanish();
+        if(dist<5.5&&M.seenT>2.4){if(M.charge)startChase();else vanish();}
+        else if(M.seenT>8)vanish();
       }else{                                                // distraído → se aproxima
         M.seenT=Math.max(0,M.seenT-dt);
         if(dist>4.2&&!frozen){speed=1.7;moving=true;follow(dt,speed,cellOf({x:P.x,z:P.z}));}
