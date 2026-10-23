@@ -248,31 +248,34 @@ let uvNextWhisperT=0; // cooldown para sussurros direcionais UV/exploração
 
 // viewmodel: Maglite Mini pequena + mão (mesma posição/escala — só visual)
 const vm=new THREE.Group();
-const mDark=new THREE.MeshStandardMaterial({color:0x2a2c30,roughness:.35,metalness:.82});
-const mGrip=new THREE.MeshStandardMaterial({color:0x141416,roughness:.9,metalness:.08});
-const mGlove=new THREE.MeshStandardMaterial({color:0x121110,roughness:.88,metalness:.03});
+const mDark=new THREE.MeshStandardMaterial({color:0x242528,roughness:.36,metalness:.8});
+const mGrip=new THREE.MeshStandardMaterial({color:0x101012,roughness:.9,metalness:.08});
+const mGlove=new THREE.MeshStandardMaterial({color:0x151312,roughness:.88,metalness:.03});
 const mLens=new THREE.MeshStandardMaterial({color:0xe8f2ff,roughness:.06,metalness:.55,emissive:0xffe8c0,emissiveIntensity:.25,transparent:true,opacity:.92});
-const mChrome=new THREE.MeshStandardMaterial({color:0xb0b4bc,roughness:.2,metalness:.92});
+const mChrome=new THREE.MeshStandardMaterial({color:0xc0c4cc,roughness:.18,metalness:.92});
 const mUVLed=new THREE.MeshStandardMaterial({color:0x2a1840,roughness:.4,metalness:.3,emissive:0x7a3cff,emissiveIntensity:0});
-// corpo alumínio + knurl + cabeça + lente
-const flBody=new THREE.Mesh(new THREE.CylinderGeometry(0.012,0.0135,0.09,20),mDark);flBody.rotation.x=Math.PI/2;flBody.position.z=.008;
-const flKnurl=new THREE.Mesh(new THREE.CylinderGeometry(0.014,0.014,0.026,20),mGrip);flKnurl.rotation.x=Math.PI/2;flKnurl.position.z=.038;
-const flHead=new THREE.Mesh(new THREE.CylinderGeometry(0.0135,0.02,0.028,20),mChrome);flHead.rotation.x=Math.PI/2;flHead.position.z=-.052;
-const flBezel=new THREE.Mesh(new THREE.CylinderGeometry(0.021,0.0205,0.007,22),mChrome);flBezel.rotation.x=Math.PI/2;flBezel.position.z=-.068;
-const flLens=new THREE.Mesh(new THREE.CircleGeometry(0.0165,24),mLens);flLens.position.z=-.072;
-const flUVRing=new THREE.Mesh(new THREE.TorusGeometry(0.018,0.0015,6,24),mUVLed);flUVRing.position.z=-.071;
-const flRing=new THREE.Mesh(new THREE.TorusGeometry(0.018,0.0016,6,20),mChrome);flRing.position.z=-.066;
-const flSw=new THREE.Mesh(new THREE.CylinderGeometry(0.004,0.0045,0.008,10),mGrip);flSw.rotation.z=Math.PI/2;flSw.position.set(0,.014,.01);
-const flTail=new THREE.Mesh(new THREE.CylinderGeometry(0.013,0.012,0.01,16),mChrome);flTail.rotation.x=Math.PI/2;flTail.position.z=.058;
-const flBand1=new THREE.Mesh(new THREE.TorusGeometry(0.0135,0.0012,6,14),mGrip);flBand1.position.z=-.01;
-const flClip=new THREE.Mesh(new THREE.BoxGeometry(0.002,0.012,0.038),mChrome);flClip.position.set(.014,.001,.015);
-const glove=new THREE.Mesh(new THREE.BoxGeometry(0.03,0.03,0.048),mGlove);glove.position.set(0,-.023,.06);
-const fingers=new THREE.Mesh(new THREE.BoxGeometry(0.027,0.011,0.036),mGlove);fingers.position.set(0,-.006,.03);fingers.rotation.x=-.2;
-const thumb=new THREE.Mesh(new THREE.BoxGeometry(0.011,0.013,0.028),mGlove);thumb.position.set(-.016,-.006,.05);thumb.rotation.z=.5;thumb.rotation.x=-.2;
-const wrist=new THREE.Mesh(new THREE.CylinderGeometry(0.014,0.016,0.055,10),mGlove);wrist.rotation.x=Math.PI/2;wrist.position.set(0,-.028,.098);
-vm.add(flBody,flKnurl,flHead,flBezel,flLens,flUVRing,flRing,flSw,flTail,flBand1,flClip,glove,fingers,thumb,wrist);
-vm.position.set(.235,-.185,-.46);
-vm.scale.set(.38,.38,.38);
+const mRubber=new THREE.MeshStandardMaterial({color:0x181819,roughness:.95,metalness:.02});
+// lanterna mais curta e mais grossa (formato tipo "tactical")
+const flBody=new THREE.Mesh(new THREE.CylinderGeometry(0.018,0.02,0.058,24),mDark);flBody.rotation.x=Math.PI/2;flBody.position.z=.012;
+const flKnurl=new THREE.Mesh(new THREE.CylinderGeometry(0.0215,0.0215,0.018,24),mRubber);flKnurl.rotation.x=Math.PI/2;flKnurl.position.z=.03;
+const flHead=new THREE.Mesh(new THREE.CylinderGeometry(0.02,0.028,0.024,24),mChrome);flHead.rotation.x=Math.PI/2;flHead.position.z=-.038;
+const flBezel=new THREE.Mesh(new THREE.CylinderGeometry(0.0295,0.0285,0.006,26),mChrome);flBezel.rotation.x=Math.PI/2;flBezel.position.z=-.052;
+const flLens=new THREE.Mesh(new THREE.CircleGeometry(0.023,28),mLens);flLens.position.z=-.0555;
+const flUVRing=new THREE.Mesh(new THREE.TorusGeometry(0.025,0.002,6,28),mUVLed);flUVRing.position.z=-.0545;
+const flRing=new THREE.Mesh(new THREE.TorusGeometry(0.025,0.002,6,24),mChrome);flRing.position.z=-.051;
+const flSw=new THREE.Mesh(new THREE.CylinderGeometry(0.005,0.0055,0.01,12),mGrip);flSw.rotation.z=Math.PI/2;flSw.position.set(0,.02,.006);
+const flTail=new THREE.Mesh(new THREE.CylinderGeometry(0.0185,0.0175,0.008,18),mChrome);flTail.rotation.x=Math.PI/2;flTail.position.z=.044;
+const flBand1=new THREE.Mesh(new THREE.TorusGeometry(0.02,0.0016,6,18),mGrip);flBand1.position.z=-.004;
+const flBand2=new THREE.Mesh(new THREE.TorusGeometry(0.02,0.0014,6,18),mGrip);flBand2.position.z=.022;
+const flClip=new THREE.Mesh(new THREE.BoxGeometry(0.0026,0.016,0.028),mChrome);flClip.position.set(.019,.001,.01);
+// mão mais natural próxima à lanterna
+const glove=new THREE.Mesh(new THREE.BoxGeometry(0.036,0.034,0.042),mGlove);glove.position.set(.002,-.026,.058);
+const fingers=new THREE.Mesh(new THREE.BoxGeometry(0.032,0.014,0.032),mGlove);fingers.position.set(.002,-.008,.028);fingers.rotation.x=-.18;
+const thumb=new THREE.Mesh(new THREE.BoxGeometry(0.014,0.016,0.026),mGlove);thumb.position.set(-.02,-.008,.048);thumb.rotation.z=.48;thumb.rotation.x=-.18;
+const wrist=new THREE.Mesh(new THREE.CylinderGeometry(0.017,0.019,0.05,12),mGlove);wrist.rotation.x=Math.PI/2;wrist.position.set(.002,-.03,.096);
+vm.add(flBody,flKnurl,flHead,flBezel,flLens,flUVRing,flRing,flSw,flTail,flBand1,flBand2,flClip,glove,fingers,thumb,wrist);
+vm.position.set(.245,-.19,-.44);
+vm.scale.set(.44,.44,.44);
 flashRig.add(vm);
 const fl=flBody; // update() ainda usa fl.material — não quebrar
 
